@@ -3,165 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>නව Author ලියාපදිංචිය</title>
+<title>නව ගුරු ගිණුමක් | විෂයානුබද්ධ වාග් මාලාව</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&family=Noto+Serif+Sinhala:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EFE9DC;
-    --paper-raised:#F7F3E9;
-    --ink:#26221A;
-    --ink-soft:#5B564A;
-    --line:#D9D1BE;
-    --maroon:#7A2E2E;
-    --maroon-dark:#5E2222;
-    --brass:#A9822C;
-    --sage:#5C6E52;
-    --danger:#9A3324;
+    --forest-900:#0f2e21;
+    --forest-800:#163d2c;
+    --forest-700:#1b4332;
+    --forest-600:#2d6a4f;
+    --mint-300:#95d5b2;
+    --mint-200:#b7e4c7;
+    --mint-100:#d9f2e4;
+    --paper:#f4faf6;
+    --paper-2:#ffffff;
+    --ink:#12231a;
+    --ink-soft:#3f5c4c;
+    --danger:#b3492f;
+    --danger-soft:#f4e2dd;
+    --shadow:0 10px 30px rgba(15,46,33,0.14);
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0; min-height:100%;}
   body{
-    background:var(--paper);
+    background:
+      radial-gradient(1100px 480px at 85% -10%, var(--mint-100) 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, var(--mint-100) 0%, transparent 55%),
+      var(--paper);
+    font-family:'Noto Sans Sinhala', sans-serif;
     color:var(--ink);
-    font-family: Georgia, "Noto Serif Sinhala", "Iskoola Pota", serif;
-    line-height:1.5;
     min-height:100vh;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:30px 16px;
+    flex-direction:column;
   }
-  .ui{font-family: -apple-system,"Segoe UI","Noto Sans Sinhala","Iskoola Pota",sans-serif;}
+  h1{font-family:'Noto Serif Sinhala', serif;}
+
+  header{
+    background:linear-gradient(120deg, var(--forest-900), var(--forest-700) 65%, var(--forest-600));
+    padding:40px 20px 34px;
+    text-align:center;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%;
+    background:radial-gradient(circle, rgba(149,213,178,0.25), transparent 70%);
+  }
+  header h1{margin:0 0 8px; font-size:1.6rem;}
+  header p{margin:0; color:var(--mint-200); font-size:.92rem;}
+
+  main{flex:1; display:flex; align-items:flex-start; justify-content:center; padding:34px 16px 50px;}
 
   .card{
-    width:100%;
-    max-width:380px;
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-    border-left:4px solid var(--maroon);
-    border-radius:6px;
-    padding:26px 26px 22px;
+    width:100%; max-width:420px;
+    background:var(--paper-2);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--mint-200);
+    border-top:4px solid var(--forest-600);
+    padding:30px 28px 26px;
+    margin-top:-30px;
+    position:relative;
+    z-index:5;
   }
-  .card h1{
-    font-size:20px;
-    margin:0 0 4px;
-  }
-  .card .sub{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    margin:0 0 20px;
-  }
+  .card h2{margin:0 0 6px; font-size:1.2rem; color:var(--forest-800);}
+  .card .sub{margin:0 0 22px; font-size:.85rem; color:var(--ink-soft); line-height:1.6;}
 
-  .field{ margin-bottom:14px; }
-  .field label{
-    display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:5px;
-  }
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:.82rem; font-weight:600; color:var(--forest-700); margin-bottom:6px;}
   .field input{
-    width:100%;
-    padding:9px 10px;
-    border:1px solid var(--line);
-    background:#fff;
-    font-size:14.5px;
-    color:var(--ink);
-    border-radius:4px;
-    font-family:inherit;
+    width:100%; padding:11px 13px; border-radius:9px; border:1.5px solid #cfe6d7;
+    background:var(--paper); font-family:inherit; font-size:.95rem; color:var(--ink);
+    transition:.15s;
   }
   .field input:focus{
-    outline:2px solid var(--brass); outline-offset:0; border-color:var(--brass);
+    outline:none; border-color:var(--forest-600); background:#fff;
+    box-shadow:0 0 0 3px rgba(45,106,79,0.15);
   }
-  .hint{
-    font-size:11.5px;
-    color:var(--ink-soft);
-    margin-top:4px;
-  }
+  .hint{font-size:.76rem; color:var(--ink-soft); margin-top:5px;}
 
   button.btn{
-    width:100%;
-    font-size:14px;
-    padding:10px 16px;
-    border-radius:5px;
-    border:1px solid var(--ink);
-    background:var(--ink);
-    color:var(--paper-raised);
-    cursor:pointer;
-    margin-top:6px;
+    width:100%; font-size:.98rem; font-weight:600; padding:12px 16px;
+    border-radius:10px; border:none; background:var(--forest-700); color:#fff;
+    cursor:pointer; margin-top:6px; font-family:inherit; transition:.18s;
   }
-  button.btn:hover{ background:#3a3527; }
-  button.btn:disabled{ opacity:0.55; cursor:default; }
+  button.btn:hover{background:var(--forest-600); transform:translateY(-1px);}
+  button.btn:disabled{opacity:.55; cursor:default; transform:none;}
 
-  .banner{
-    font-size:13px; padding:10px 14px; border-radius:5px; margin-bottom:14px;
-  }
-  .banner.error{ background:#F6E1DB; border:1px solid var(--danger); color:var(--maroon-dark); }
-  .banner.ok{ background:#E8EDE4; border:1px solid var(--sage); color:#37452f; }
+  .banner{font-size:.85rem; padding:11px 14px; border-radius:9px; margin-bottom:16px; line-height:1.5;}
+  .banner.error{background:var(--danger-soft); border:1px solid var(--danger); color:#7a2c1a;}
+  .banner.ok{background:var(--mint-100); border:1px solid var(--mint-300); color:var(--forest-800);}
 
-  details.settings{
-    margin-top:18px; font-size:12px;
+  .switch-link{
+    text-align:center; margin-top:18px; font-size:.85rem; color:var(--ink-soft);
   }
-  details.settings summary{ cursor:pointer; color:var(--ink-soft); }
-  details.settings .box{
-    margin-top:8px; padding:10px 12px; background:#fff;
-    border:1px solid var(--line); border-radius:6px;
-  }
-  details.settings input{
-    width:100%; margin-top:4px; padding:6px 8px; font-size:12.5px;
-    border:1px solid var(--line); border-radius:4px; font-family:inherit;
-  }
-  details.settings code{
-    display:block; background:var(--paper); border:1px solid var(--line); padding:8px;
-    border-radius:4px; font-size:11px; white-space:pre-wrap; margin-top:6px;
+  .switch-link a{color:var(--forest-700); font-weight:600; text-decoration:none;}
+  .switch-link a:hover{text-decoration:underline;}
+
+  footer{
+    text-align:center; padding:22px 20px; color:var(--forest-700); font-size:.85rem;
+    background:var(--mint-100); border-top:1px solid var(--mint-200);
   }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
+
+<header>
+  <h1>විෂයානුබද්ධ වාග් මාලාව</h1>
+  <p>නව ගුරු ගිණුමක් සාදන්න</p>
+</header>
+
+<main>
   <div class="card">
-    <h1>නව Author ලියාපදිංචිය</h1>
-    <p class="sub ui">විෂයානුබද්ධ වාග් මාලාව සඳහා ඔබේම username සහ password එකක් සකසන්න.</p>
+    <h2>ලියාපදිංචි වන්න</h2>
+    <p class="sub">පරිපාලක පිටුවෙන් වචන ඇතුළත් කිරීමට ඔබේම username සහ password එකක් සකසන්න.</p>
 
     <div id="banner"></div>
 
     <form id="regForm">
       <div class="field">
-        <label class="ui" for="username">Enter two parts of your name using simple English letters.(username)</label>
-        <input class="ui" type="text" id="username" autocomplete="username" required>
+        <label for="username">Username (ඉංග්‍රීසි අකුරු පමණි)</label>
+        <input type="text" id="username" autocomplete="username" placeholder="උදා: kamalperera" required>
       </div>
       <div class="field">
-        <label class="ui" for="password">create a password (minimum 6 characters)</label>
-        <input class="ui" type="password" id="password" autocomplete="new-password" required>
+        <label for="password">මුරපදය</label>
+        <input type="password" id="password" autocomplete="new-password" required>
+        <div class="hint">අවම වශයෙන් අකුරු 6ක් වත් යොදන්න.</div>
       </div>
       <div class="field">
-        <label class="ui" for="confirm">confirm password</label>
-        <input class="ui" type="password" id="confirm" autocomplete="new-password" required>
-        <div class="hint ui">අවම වශයෙන් අකුරු 6 ක් වත් යොදන්න.</div>
+        <label for="confirm">මුරපදය තහවුරු කරන්න</label>
+        <input type="password" id="confirm" autocomplete="new-password" required>
       </div>
-      <button class="btn ui" id="submitBtn" type="submit">ලියාපදිංචි වන්න</button>
+      <button class="btn" id="submitBtn" type="submit">ලියාපදිංචි වන්න</button>
     </form>
 
-    <details class="settings">
-      <summary class="ui"></summary>
-      <div class="box">
-        <label class="ui" for="tableName">Authors වගු නාමය</label>
-        <input class="ui" type="text" id="tableName" value="authors">
-        <code id="sqlHint"></code>
-      </div>
-    </details>
+    <div class="switch-link">දැනටමත් ගිණුමක් තිබේද? <a href="admin.html">පරිපාලක පිටුවට යන්න</a></div>
   </div>
+</main>
+
+<footer>කලාපීය ගුරු සහයෝගීතාව</footer>
 
 <script>
 (function(){
-  // Same Supabase project used by the word-dictionary app.
   const SUPABASE_URL = "https://uqgzlaxsnknheoerbfus.supabase.co";
   const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ3psYXhzbmtuaGVvZXJiZnVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5MjM2MTUsImV4cCI6MjA3OTI4MzYxNX0.IYWZ7ukx8J-GJMWy7cMk2BWnmzJmJjjE93yEmJie7nQ";
-  const REST_BASE = SUPABASE_URL + "/rest/v1/";
+  // authors table එකට direct access RLS/REVOKE වලින් block වී ඇති නිසා,
+  // SECURITY DEFINER RPC functions දෙක හරහා යනවා (username_exists, create_author).
+  const RPC_BASE = SUPABASE_URL + "/rest/v1/rpc/";
+
+  document.addEventListener("contextmenu", e => e.preventDefault());
 
   const $ = (id) => document.getElementById(id);
-  let TABLE = "authors";
 
-  function headers(extra){
-    return Object.assign({
+  function headers(){
+    return {
       "apikey": ANON_KEY,
       "Authorization": "Bearer " + ANON_KEY,
       "Content-Type": "application/json"
-    }, extra || {});
+    };
   }
 
   function escapeHtml(s){
@@ -173,43 +175,14 @@
   function showBanner(message, type){
     const el = $("banner");
     if(!message){ el.innerHTML = ""; return; }
-    el.innerHTML = '<div class="banner ' + (type||"error") + ' ui">' + escapeHtml(message) + '</div>';
+    el.innerHTML = '<div class="banner ' + (type || "error") + '">' + escapeHtml(message) + '</div>';
   }
 
-  function updateSqlHint(){
-    $("sqlHint").textContent =
-      'CREATE TABLE IF NOT EXISTS ' + TABLE + ' (\n' +
-      '  id bigint generated always as identity primary key,\n' +
-      '  username text unique not null,\n' +
-      '  password text not null,\n' +
-      '  created_at timestamptz default now()\n' +
-      ');';
-  }
-
-  $("tableName").addEventListener("input", () => {
-    TABLE = $("tableName").value.trim() || "authors";
-    updateSqlHint();
-  });
-  updateSqlHint();
-
-  async function usernameExists(username){
-    const res = await fetch(
-      REST_BASE + TABLE + "?select=username&username=eq." + encodeURIComponent(username) + "&limit=1",
-      { headers: headers() }
-    );
-    if(!res.ok){
-      const body = await res.text();
-      throw new Error(body || res.statusText);
-    }
-    const rows = await res.json();
-    return rows.length > 0;
-  }
-
-  async function createAuthor(username, password){
-    const res = await fetch(REST_BASE + TABLE, {
+  async function callRpc(fnName, payload){
+    const res = await fetch(RPC_BASE + fnName, {
       method: "POST",
-      headers: headers({ "Prefer": "return=representation" }),
-      body: JSON.stringify({ username, password })
+      headers: headers(),
+      body: JSON.stringify(payload)
     });
     const text = await res.text();
     let json = null;
@@ -219,6 +192,14 @@
       throw new Error(msg);
     }
     return json;
+  }
+
+  async function usernameExists(username){
+    return await callRpc("username_exists", { p_username: username });
+  }
+
+  async function createAuthor(username, password){
+    return await callRpc("create_author", { p_username: username, p_password: password });
   }
 
   $("regForm").addEventListener("submit", async (ev) => {
@@ -233,8 +214,12 @@
       showBanner("Username සහ password දෙකම අවශ්‍යයි.", "error");
       return;
     }
-    if(password.length < 4){
-      showBanner("මුරපදය අකුරු 4කට වඩා දිග විය යුතුයි.", "error");
+    if(!/^[a-zA-Z0-9_. ]+$/.test(username)){
+      showBanner("Username සඳහා ඉංග්‍රීසි අකුරු, අංක සහ space පමණක් භාවිත කරන්න.", "error");
+      return;
+    }
+    if(password.length < 6){
+      showBanner("මුරපදය අකුරු 6කට වඩා දිග විය යුතුයි.", "error");
       return;
     }
     if(password !== confirm){
@@ -244,6 +229,7 @@
 
     const btn = $("submitBtn");
     btn.disabled = true;
+    btn.textContent = "සකසමින්...";
     try{
       const exists = await usernameExists(username);
       if(exists){
@@ -251,12 +237,16 @@
         return;
       }
       await createAuthor(username, password);
-      showBanner('ලියාපදිංචිය සාර්ථකයි! දැන් ඔබට "' + username + '" ලෙස පරිපාලන පිටුවෙන් පිවිසිය හැක.', "ok");
+      showBanner('ලියාපදිංචිය සාර්ථකයි! දැන් ඔබට "' + username + '" ලෙස පරිපාලක පිටුවෙන් පිවිසිය හැක.', "ok");
       $("regForm").reset();
     }catch(e){
-      showBanner("ලියාපදිංචි කිරීමට නොහැකි විය: " + e.message, "error");
+      const msg = /username_taken/i.test(e.message)
+        ? 'මෙම username එක දැනටමත් භාවිතයේ ඇත.'
+        : "ලියාපදිංචි කිරීමට නොහැකි විය: " + e.message;
+      showBanner(msg, "error");
     }finally{
       btn.disabled = false;
+      btn.textContent = "ලියාපදිංචි වන්න";
     }
   });
 })();
